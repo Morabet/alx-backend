@@ -19,8 +19,8 @@ class LIFOCache(BaseCaching):
                 del self.cache_data[last_key]
                 print(f"DISCARD: {last_key}")
 
-        self.queue.append(key)
-        self.cache_data[key] = item
+            self.queue.append(key)
+            self.cache_data[key] = item
 
     def get(self, key):
         """ Get an item by key """
