@@ -15,14 +15,14 @@ class Config:
     BABEL_DEFAULT_TIMEZONE = 'UTC'
 
 
+app.config.from_object(Config)
+babel = Babel(app)
+
+
+@babel.localeselector
 def get_locale() -> str:
     """ Retrieves the locale for a web page"""
     return request.accept_languages.best_match(app.config['LANGUAGES'])
-
-
-app.config.from_object(Config)
-babel = Babel(app)
-babel.init_app(app, locale_selector=get_locale)
 
 
 @app.route('/')
